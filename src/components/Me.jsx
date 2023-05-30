@@ -26,7 +26,7 @@ export default function Me(props) {
   }, []);
 
   return (
-    <group {...props} dispose={null} ref={group}>
+    <group {...props} dispose={null} ref={group} position={[0.7,-0.82,1]} rotation={[0,- Math.PI / 2,0]} scale={0.85} >
       <group rotation-x={- Math.PI / 2}>
         <primitive object={nodes.Hips} />
         <skinnedMesh  geometry={nodes.Wolf3D_Body.geometry} material={materials.Wolf3D_Body} skeleton={nodes.Wolf3D_Body.skeleton} />
