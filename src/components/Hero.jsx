@@ -1,7 +1,7 @@
 
 import { Canvas } from "@react-three/fiber";
 import Scene from './Scene.jsx';
-
+import { Loader } from "@react-three/drei"
 export default function Hero(){
     return(
         <>
@@ -17,6 +17,7 @@ export default function Hero(){
                         <Scene/>
 
                     </Canvas>
+                    <Loader/>
             </div>
         </>
     )
