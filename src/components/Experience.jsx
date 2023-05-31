@@ -1,9 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/no-unknown-property */
 
 import Me from "./Me.jsx";
 import Computer from "./Computer.jsx";
 import { useRef } from "react";
-import { Text } from "@react-three/drei";
+
 
 export default function Experience(){
 
@@ -14,11 +15,10 @@ export default function Experience(){
              
                         <group position={[0, 0, 0]} ref={scaleRef}  >
      
-                                                    
+                     
                                 <Me/>
                                 <Computer/>  
             
-                    
 
                                             
                         </group>
