@@ -5,9 +5,10 @@ export default function Hero(){
     return(
         <>
         <div className="hero-section">
-            <Navigation/>
-
+            <Navigation/>  
+ 
             <div className='hero-container'>
+                
                 <div className='wrapper-left'>
                     <article>
                         <h1 className='hero-title'>JEAN</h1>

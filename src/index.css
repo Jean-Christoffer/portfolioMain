@@ -6,6 +6,11 @@
 body{
     font-family: 'Source Sans Pro', sans-serif;
 }
+html{
+    background: rgb(47,45,46);
+    background: radial-gradient(circle, rgba(47,45,46,1) 0%, rgba(0,0,0,1) 100%); 
+
+}
 article{
     letter-spacing: -0.003em;
     line-height: 30px;
@@ -27,10 +32,9 @@ a{
 }
 header{
     position: sticky;
-
     z-index: 100;
     width: 100%;
-    background-color: black;
+
     color: white;
     padding: 20px;
 }
@@ -57,17 +61,14 @@ ul{
 
 .section-wrapper{
     height: 100vh;
-    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     overflow-y: auto;
     color: white;
-    background: rgb(47,45,46);
-    background: radial-gradient(circle, rgba(47,45,46,1) 0%, rgba(0,0,0,1) 100%); 
 
 }
 .hero-section{
     height: 100vh;
-    scroll-snap-align: center;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -136,9 +137,9 @@ ul{
 
 .projects{
 
-    scroll-snap-align: center;
+
 }
 .contact{
 
-    scroll-snap-align: center;
+
 }
