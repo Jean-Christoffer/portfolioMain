@@ -1,10 +1,21 @@
-import Scene from "./components/Scene.jsx"
+
+import Hero from "./components/Hero.jsx"
+
+import Contact from "./components/Contact.jsx"
+import Projects from "./components/Projects.jsx"
 function App() {
 
 
   return (
     <>
-      <Scene/>
+      <div className="section-wrapper">
+
+        <Hero/>
+        <Projects/>
+        <Contact/>
+  
+    
+      </div>
     </>
   )
 }

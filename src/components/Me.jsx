@@ -8,7 +8,7 @@ export default function Me(props) {
   const group = useRef()
   const { nodes, materials } = useGLTF('models/643501b7aa10d7b4efdae4d3.glb')
 
-  const {animations:typingAnimation} = useFBX('animations/Typing.fbx')
+  const {animations:typingAnimation} = useFBX('animations/SittingIdle.fbx')
   typingAnimation[0].name = 'working'
   
   const {actions} = useAnimations(typingAnimation,group)
@@ -26,8 +26,8 @@ export default function Me(props) {
   }, []);
 
   return (
-    <group {...props} dispose={null} ref={group} position={[0.7,-0.82,1]} rotation={[0,- Math.PI / 2,0]} scale={0.85} >
-      <group rotation-x={- Math.PI / 2}>
+    <group {...props} dispose={null} ref={group} position={[0,0,0]} rotation={[0, Math.PI * 2,0]}    >
+      <group rotation-x={- Math.PI / 2} >
         <primitive object={nodes.Hips} />
         <skinnedMesh  geometry={nodes.Wolf3D_Body.geometry} material={materials.Wolf3D_Body} skeleton={nodes.Wolf3D_Body.skeleton} />
         <skinnedMesh  geometry={nodes.Wolf3D_Outfit_Bottom.geometry} material={materials.Wolf3D_Outfit_Bottom} skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton} />

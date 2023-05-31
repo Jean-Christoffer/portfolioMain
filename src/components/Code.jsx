@@ -206,8 +206,8 @@ export default function Code() {
     <>
         
 
-            <mesh ref={geoRef} position={[1, 1.3, 1.1]}  rotation={[0, 1.55, 0]}  >
-            <planeGeometry args={[1.5, 1, 32, 32]} />
+            <mesh ref={geoRef} position={[-0.29, 1.1, 1.1]}  rotation={[0, 1.58, 0]}  >
+            <planeGeometry args={[1, 0.8, 32, 32]} />
             <shaderMaterial
 
                 fragmentShader={fragmentShader}
