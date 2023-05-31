@@ -76,11 +76,6 @@ ul{
   
 
 }
-@media only screen and (max-width: 768px) {
-    .hero-section{
-        height: 200vh;
-    }
-}
 
 .hero-container{
  height: 100%;
@@ -115,11 +110,18 @@ ul{
    .wrapper-left{
     flex: 1;
     align-items: center;
+    padding: 10px;
    }
    .wrapper-right{
     flex: 1;
     width: 100%;
    }
+   .hero-section{
+    height: 100%;
+    }
+    canvas{
+        z-index: -1;
+    }
   }
 
 
