@@ -1,14 +1,23 @@
-import Cards from "./Cards"
-import {Container,Box} from '@mui/material'
 
+import {Container} from '@mui/material'
+import {motion} from 'framer-motion'
+import { useState,useRef,useEffect } from 'react'
 export default function Projects(){
+
+    const  [width, setWidth] = useState(0)
+    const carousel= useRef()
+
+    useEffect(()=>{
+        setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth)
+    },[])
+
     const projectList =
  [
     {
      title:'Wave',
      excerpt:'This is my year one exam. to put together what we',
      type:'Project exam',
-     img:'images/wave1.jpg',
+     img:'images/wave.png',
      id:1,
      git:'https://github.com/Noroff-FEU-Assignments/project-exam-1-Jean-Christoffer',
      web:'https://charming-mousse-954d3d.netlify.app/',
@@ -19,7 +28,7 @@ export default function Projects(){
         title:'Museum',
         excerpt:'whatever',
         type:'Project exam',
-        img:'images/museum.jpg',
+        img:'images/museum.png',
         id:2,
         git:'https://github.com/Jean-Christoffer/Museum',
         web:'https://spectacular-sorbet-d98fe8.netlify.app/index.html',
@@ -31,7 +40,7 @@ export default function Projects(){
         title:'Gamehub',
         excerpt:'asdasd',
         type:'Cross course assigment',
-        img:'images/gamehub.jpg',
+        img:'images/gamehub.png',
         id:3,
         git:'https://github.com/Jean-Christoffer/gamehubFinal',
         web:'https://gamehub-f-inal.vercel.app/',
@@ -41,8 +50,8 @@ export default function Projects(){
         title:'Portfolio',
         excerpt:'asdasd',
         type:'Course assigment',
-        img:'images/port.jpg',
-        id:3,
+        img:'images/port.png',
+        id:4,
         git:'https://github.com/Jean-Christoffer/portfolioMain',
         web:'https://portfolio-main-mauve.vercel.app/',
         tools:['images/react.svg','images/mui.svg','images/three.svg']
@@ -51,8 +60,8 @@ export default function Projects(){
         title:'MovieBase',
         excerpt:'asdasd',
         type:'Personal',
-        img:'images/movie.jpg',
-        id:3,
+        img:'images/movie.png',
+        id:5,
         git:'https://github.com/Jean-Christoffer/Movie-base',
         web:'https://movie-base-mauve.vercel.app/',
         tools:['images/react.svg','images/mui.svg']
@@ -62,23 +71,28 @@ export default function Projects(){
     return(
         <>
             <Container
-            sx={{ 
-                display:'flex',
-                flexDirection:'column',
-
-             }}
-             >
-                <Box sx={{ 
-                    display:'flex', 
-                    gap:2,
-                    flexWrap:'wrap',
+                sx={{
+                    height:'100vh', 
+                    display:'flex',
+                    flexDirection:'column',
                     justifyContent:'center',
-                    mt:5
-                    
-           
-                     }}>
-                    {projectList.map(project=> <Cards key={project.id} details={project} />)}
-                </Box>
+
+                 }}
+             >
+
+                        <motion.div className="carousel" ref={carousel} whileTap={{ cursor:'grabbing' }}>
+                            <motion.div
+                             drag='x'
+                             dragConstraints={{ right:0,left: -width }}
+                             className="inner-carousel">
+                                {projectList.map(project=> 
+                                <motion.div className="item" key={project.id}>
+                                    <img src={project.img}/>
+                                </motion.div>)}
+                            </motion.div>
+                        </motion.div>
+
+             
             </Container>
         </>
     )

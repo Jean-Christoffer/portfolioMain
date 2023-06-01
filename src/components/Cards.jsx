@@ -49,17 +49,6 @@ export default function Cards(props){
         </Box>
 
 
-          {active && 
-          <Box p={1}>
-             <Typography component="p" variant="body">{details.excerpt}</Typography>
-             <Link to={details.git} target="blank"><GitHubIcon/></Link>
-             <Link to={details.web} target="blank"><LanguageIcon/></Link>
-             <Typography component="p" variant="body">{details.type}</Typography>
-             <Box sx={{ display:'flex',gap:1,alignItems:'center',height:'50px' }}>
-             {details.tools.map((logo,i) => <Box key={i} sx={{ maxWidth:'30px' }}><img   src={logo}/></Box>)}
-             </Box>
-          </Box>
-          }
       </Paper>
         </>
     )
