@@ -4,12 +4,20 @@ import Contact from "./components/Contact.jsx"
 import Projects from "./components/Projects.jsx"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Navigation from "./components/Navigation.jsx"
+
+
+
+
+
+
+
 function App() {
 
 
   return (
     <>
-   
+
+
         <BrowserRouter>
           <Navigation/>
           <Routes>
@@ -19,7 +27,6 @@ function App() {
           </Routes>
         </BrowserRouter>
 
-  
     
 
     </>

@@ -4,66 +4,21 @@
     box-sizing: border-box;
 }
 
-body{
-    font-family: 'Source Sans Pro', sans-serif;
-    background: rgb(47,45,46);
-    background: radial-gradient(circle, rgba(47,45,46,1) 0%, rgba(0,0,0,1) 100%); 
-}
-article{
+html{
+    background: radial-gradient(circle, rgba(47, 45, 46, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    color: white;
 
-    
-    width: 300px;
-    line-height: 150%;
-    
-}
-article h1{
-    font-size: 2rem;
-    padding-bottom:15px;
-}
-article p {
-    font-size: 1rem;
-}
-
-@media (min-width: 52rem) {
-    article{
-
-    
-        width: 500px;
-        line-height: 200%;
-        
-    }
-    article h1{
-        font-size: 3rem;
-        padding-bottom:15px;
-    }
-    article p {
-        font-size: 1.5rem;
-    }
-}
-ul,li{
-    list-style: none;
 }
 a{
     text-decoration: none;
-    color: inherit;
     cursor: pointer;
+   
 }
-header{
-
-    z-index: 100;
+img{
     width: 100%;
+    display: block;
+}
 
-    color: white;
-    padding: 20px;
-}
-.hero-title{
-    font-family: 'Oswald', sans-serif;
-}
-ul{
-    display: flex;
-    gap:10px;
-    align-items: center;
-}
 .computer iframe{
     width: 1024px;
     height: 670px;
@@ -76,16 +31,6 @@ ul{
     background: black;
     overflow:hidden
 }
-
-.section-wrapper{
-    height: 100vh;
-    scroll-behavior: smooth;
-    overflow-y: auto;
-    color: white;
-
-
-}
-
 
 
 
