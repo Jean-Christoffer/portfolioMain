@@ -23,7 +23,7 @@ export default function Scene(){
                 <Center>
                     <Html
                                 
-                    position={[-0.45, 1.05, 0]}
+                    position={[-0.5, 1.1, 0]}
                     >
 
                         <Box

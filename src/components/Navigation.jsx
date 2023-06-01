@@ -25,9 +25,10 @@ const pages = [
 export default function Navigation() {
 
   return (
-    <AppBar position="static" sx={{ 
+    <AppBar position="fixed" sx={{ 
         background:'none',
-        boxShadow:'none'
+        boxShadow:'none',
+        top:0
      }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>

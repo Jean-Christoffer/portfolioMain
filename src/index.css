@@ -23,7 +23,9 @@ img{
     height:175px
 }
 
+
 .computer iframe{
+
     width: 1024px;
     height: 670px;
     border: none;
@@ -33,9 +35,18 @@ img{
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     background: black;
-    overflow:hidden
-}
+    overflow:hidden;
 
+}
+canvas{
+    touch-action: none;
+
+}
+.canvas-wrapper{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
 
 
 

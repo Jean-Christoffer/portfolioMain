@@ -19,7 +19,7 @@ function App() {
 
 
         <BrowserRouter>
-          <Navigation/>
+        <Navigation/>
           <Routes>
             <Route path="/" element={<Hero/>}></Route>
             <Route path="/projects" element={<Projects/>}></Route>
