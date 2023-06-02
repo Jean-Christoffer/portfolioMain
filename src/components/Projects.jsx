@@ -1,45 +1,37 @@
 
 import {Container} from '@mui/material'
-import {motion} from 'framer-motion'
-import { useState,useRef,useEffect } from 'react'
+
 import projectList from './data.jsx'
+import Cards from './Cards.jsx'
+import { Framer } from './Framer.jsx'
 export default function Projects(){
 
-    const  [width, setWidth] = useState(0)
-    const carousel= useRef()
 
-    useEffect(()=>{
-        setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth)
-    },[])
-
-    
 
     return(
         <>
-            <Container
-                sx={{
-                    height:'100vh', 
-                    display:'flex',
-                    flexDirection:'column',
-                    justifyContent:'center',
+        <Container
+        sx={{
+            maxWidth:'1500px', 
+ 
 
-                 }}
-             >
+            display:'flex',
+            flexDirection:'column',
+            justifyContent:'center',
+            position:'relative',
+            alignItems:'center',
+            zIndex:10,
 
-                        <motion.div className="carousel" ref={carousel} whileTap={{ cursor:'grabbing' }}>
-                            <motion.div
-                             drag='x'
-                             dragConstraints={{ right:0,left: -width }}
-                             className="inner-carousel">
-                                {projectList.map(project=> 
-                                <motion.div className="item" key={project.id}>
-                                    <img src={project.img}/>
-                                </motion.div>)}
-                            </motion.div>
-                        </motion.div>
-
-             
-            </Container>
+            p:2,
+            overflow:'hidden'
+         }}
+        >
+            {projectList.map(project => {
+                return <Framer key={project.id}>
+                    <Cards details={project} />
+                </Framer>
+            })}
+        </Container>
         </>
     )
 }
