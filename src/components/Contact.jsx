@@ -3,7 +3,7 @@ import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import {Container, Typography,Button,Box } from "@mui/material";
 import {useState} from 'react'
-
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
@@ -53,20 +53,54 @@ export default function Contact(){
         
     }
 
+    const theme = createTheme({
+        palette: {
+            primary: {
+              main: '#ffffff', // Set the primary color to white
+            },
+            text: {
+              primary: '#ffffff', // Set the text color to white
+            },
+            background: {
+              default: '#000000', // Set the default background color to black
+            },
+            typography: {
+                fontFamily: 'Source Sans Pro, sans-serif', // Set the font family to Source Sans Pro
+              },
+          },
+      });   
+
     return (
+<ThemeProvider theme={theme}>
     <Container maxWidth='sm' sx={{ display:'flex',flexDirection:'column', justifyContent:'center',m:'auto' }}>
         <Box
             component="form"
             onSubmit={handleFormSubmit}
             sx={{
-                '& .MuiTextField-root': {mt:1.5, width: '100%' },
+                '& .MuiTextField-root': {
+                    width: '100%', mt:2.5,
+                    '& .MuiOutlinedInput-root': {
+                      '& fieldset': {
+                        borderColor: 'white', // Set the border color to white
+                      },
+                      '& input': {
+                        color: 'white', // Set the text color to white
+                      },
+                      '& select': {
+                        color: 'white', // Set the text color to white
+                      },
+                    },
+                  },
+                  fontFamily: 'Source Sans Pro, sans-serif',
+                
                 }}
       
             autoComplete="off"
             >
-            <Typography variant='h4' component='h1' p={0.5} mt={2} >Contact</Typography>
+            <Typography variant='h4' component='h1'  sx={{  fontFamily: 'Source Sans Pro, sans-serif'  }}>Contact</Typography>
             <div>
                 <TextField
+                variant="standard"
                 required
                 value={nameValue}
                 onChange={(e)=> {setNameValue(prevState =>{
@@ -76,11 +110,18 @@ export default function Contact(){
                 id="outlined-required"
                 label="Name"
                 placeholder="Ola Nordmann"
-                fullWidth 
+                fullWidth
+                sx={{
+                    '& label': {
+                      color: '#ffffff', // Set the label color to white
+                    },
+                    fontFamily: 'Source Sans Pro, sans-serif',
+                  }} 
                     />
             </div>
             <div>
                 <TextField
+                variant="standard"
                 error = {errorState}
                 helperText={errorMessage}
                 required
@@ -92,25 +133,38 @@ export default function Contact(){
                     return prevState
                 })}}
                 placeholder="eksempel@gmail.com"
-                fullWidth 
+                fullWidth
+                sx={{
+                    '& label': {
+                      color: '#ffffff', // Set the label color to white
+                    },
+                    fontFamily: 'Source Sans Pro, sans-serif',
+                  }}  
                     />
             </div>
             
 
 
             <div>
-            <TextField
+            <TextField 
+                variant="standard"
                 id="userMessage"
                 label="Message"
                 required
                 multiline
                 rows={4}
                 value={messageValue}
-                fullWidth 
+                fullWidth
+       
                 onChange={(e)=> {setMessageValue(prevState =>{
                     prevState = e.target.value
                     return prevState
                 })}}
+                sx={{
+                    '& label': {
+                      color: '#ffffff', // Set the label color to white
+                    },
+                  }} 
                 />
             </div>
             <Box sx={{  mt:1, maxWidth:'250px',ml:'auto',mr:'auto' }}>
@@ -135,6 +189,7 @@ export default function Contact(){
             </Stack>
         </Box>
     </Container>
+    </ThemeProvider>
   );
 
 }
