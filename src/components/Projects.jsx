@@ -10,7 +10,10 @@ export default function Projects(){
 
     const contactRef = useRef()
 
-
+    const handleScrollToContact = () => {
+        contactRef.current.scrollIntoView({ behavior: 'smooth' });
+      };
+    
     return(
         <>
         <Container
@@ -29,12 +32,15 @@ export default function Projects(){
             overflow:'hidden'
          }}
         >
+
+          
             {projectList.map(project => {
                 return <Framer key={project.id}>
+                    
                     <Cards details={project} />
                 </Framer>
             })}
-    
+       
                 <Framer>
                     <Box ref={contactRef}
                      sx={{
