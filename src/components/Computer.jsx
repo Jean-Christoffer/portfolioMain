@@ -4,7 +4,7 @@ export default function Computer(){
     const computer = useGLTF('models/laptop.gltf')
     return(
         <>
-        <group scale={0.15} rotation={[0,Math.PI * 2,0] } position={[-0.07,0,0.8]}>
+        <group scale={0.17} rotation={[0,Math.PI * 2,0] } position={[-0.09,0,0.9]}>
          <primitive object={computer.scene}>
             <Html
                 transform

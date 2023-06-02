@@ -1,11 +1,14 @@
 
-import {Container} from '@mui/material'
-
+import {Container,Box} from '@mui/material'
+import Contact from './Contact.jsx'
 import projectList from './data.jsx'
 import Cards from './Cards.jsx'
 import { Framer } from './Framer.jsx'
+import { Link } from 'react-router-dom'
+import { useRef } from 'react'
 export default function Projects(){
 
+    const contactRef = useRef()
 
 
     return(
@@ -31,6 +34,19 @@ export default function Projects(){
                     <Cards details={project} />
                 </Framer>
             })}
+    
+                <Framer>
+                    <Box ref={contactRef}
+                     sx={{
+                         minHeight:'100vh',
+                         display:'flex',
+                         flexDirection:'column',
+                         justifyContent:'center' }}>
+                      <Contact/>
+                    
+                    </Box>                   
+                </Framer>
+
         </Container>
         </>
     )
