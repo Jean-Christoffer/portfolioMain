@@ -13,12 +13,9 @@ const pages = [
     },
     {
         route:'/projects',
-        name:'Projects'
+        name:'Work'
     },
-    {
-        route:'/contact',
-        name:'Contact'
-    }
+
 ];
 
 
