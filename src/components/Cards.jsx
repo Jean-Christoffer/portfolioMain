@@ -104,8 +104,8 @@ export default function Cards(props){
             display:'flex',
             gap:2
            }}>
-            <Link><GitHubIcon/></Link>
-            <Link><LanguageIcon/></Link>
+            <Link to={details.git} target="blank"><GitHubIcon/></Link>
+            <Link to={details.web} target="blank"><LanguageIcon/></Link>
           </Box>
           <Box  sx={{ 
             display:'flex',
