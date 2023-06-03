@@ -1,5 +1,5 @@
 
-import {Container,Box} from '@mui/material'
+import {Container,Box,Button} from '@mui/material'
 import Contact from './Contact.jsx'
 import projectList from './data.jsx'
 import Cards from './Cards.jsx'
@@ -32,6 +32,12 @@ export default function Projects(){
             overflow:'hidden'
          }}
         >
+            <Box sx={{ ml:'auto' }}>
+                <Button variant='outlined' onClick={handleScrollToContact}>
+                    Contact
+                </Button>
+                    
+            </Box>   
 
           
             {projectList.map(project => {

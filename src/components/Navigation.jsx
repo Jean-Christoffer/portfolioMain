@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import { Link } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-
+import { useLocation } from 'react-router-dom';
 const pages = [
     {
         route:'/',
@@ -29,9 +29,11 @@ const pages = [
 
 
 export default function Navigation() {
-
+  const location = useLocation()
+  const isLandingPage = location.pathname === '/';
   return (
-    <AppBar position="fixed" sx={{ 
+    <AppBar  sx={{
+      position: isLandingPage ? 'fixed' : 'static',
         background:'none',
         boxShadow:'none',
         top:0
