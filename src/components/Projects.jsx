@@ -4,7 +4,7 @@ import Contact from './Contact.jsx'
 import projectList from './data.jsx'
 import Cards from './Cards.jsx'
 import { Framer } from './Framer.jsx'
-import { Link } from 'react-router-dom'
+
 import { useRef } from 'react'
 export default function Projects(){
 
@@ -33,7 +33,14 @@ export default function Projects(){
          }}
         >
             <Box sx={{ ml:'auto' }}>
-                <Button variant='outlined' onClick={handleScrollToContact}>
+                <Button variant='outlined' onClick={handleScrollToContact}
+                sx={{ 
+                    color:'white',
+                    border:'1px solid white',
+
+
+                
+                 }}>
                     Contact
                 </Button>
                     

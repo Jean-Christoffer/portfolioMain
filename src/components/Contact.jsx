@@ -81,13 +81,13 @@ export default function Contact(){
                     width: '100%', mt:2.5,
                     '& .MuiOutlinedInput-root': {
                       '& fieldset': {
-                        borderColor: 'white', // Set the border color to white
+                        borderColor: 'white', 
                       },
                       '& input': {
-                        color: 'white', // Set the text color to white
+                        color: 'white',
                       },
                       '& select': {
-                        color: 'white', // Set the text color to white
+                        color: 'white', 
                       },
                     },
                   },

@@ -19,9 +19,11 @@ export default function Cards(props){
           minHeight:'100vh',
           overflow:'hidden',
           display:'flex',
-          justifyContent:'space-between',
+          justifyContent:{md:'space-between',xs:'center'},
+        
           textAlign:'left',
-          alignItems:'center'
+          alignItems:'center',
+          flexDirection:{xs:'column',md:'row'}
         }}
 
       >
@@ -41,10 +43,11 @@ export default function Cards(props){
               flexDirection:'column',
               gap:1.5
              }}>
-              <Typography component="h1" variant="h1"
+              <Typography component="h1" variant='h1'
               sx={{ 
                 letterSpacing:'5px',
                 color:'white',
+                fontSize:{xs:'3rem', md:'5rem'}
 
 
               }}
@@ -99,25 +102,30 @@ export default function Cards(props){
             </Box>
 
             </Box>
-         
-          <Box pb={2} sx={{ 
-            display:'flex',
-            gap:2
-           }}>
-            <Link to={details.git} target="blank"><GitHubIcon/></Link>
-            <Link to={details.web} target="blank"><LanguageIcon/></Link>
+          <Box>
+            <Typography component='h3' variant='h5'>Links:</Typography>
+            <Box pt={2} sx={{ 
+              display:'flex',
+              gap:2
+            }}>
+              <Link to={details.git} target="blank"><GitHubIcon fontSize="large"/></Link>
+              <Link to={details.web} target="blank"><LanguageIcon fontSize="large"/></Link>
+            </Box>
           </Box>
-          <Box  sx={{ 
-            display:'flex',
-            width:'200px',
-            m:'auto',
+            <Box  sx={{ 
+              display:'flex',
+              width:'200px',
+              m:'auto',
+              pb:2,
+              justifyContent:'center',
+              gap:2
+            }}>
 
-            gap:2
-           }}>
+              {details.tools.map((icon,i) =><img  style={{ width: '40px' }} key={i} src={icon} />)}
+          
+            </Box>
 
-            {details.tools.map((icon,i) =><img  style={{ width: '47px' }} key={i} src={icon} />)}
         
-          </Box>
         </Box>
 
         <Box
