@@ -16,10 +16,11 @@ export default function Cards(props){
           overflow:'hidden',
           display:'flex',
           justifyContent:{md:'space-between',xs:'center'},
-        
+ 
           textAlign:'left',
           alignItems:'center',
-          flexDirection:{xs:'column',md:'row'}
+          flexDirection:{xs:'column',md:'row'},
+      
         }}
 
       >
@@ -117,7 +118,7 @@ export default function Cards(props){
               gap:2
             }}>
 
-              {details.tools.map((icon,i) =><img  style={{ width: '40px' }} key={i} src={icon} />)}
+              {details.tools.map((icon,i) =><img  style={{ width: '30px' }} key={i} src={icon} />)}
           
             </Box>
 
