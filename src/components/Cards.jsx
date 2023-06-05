@@ -7,10 +7,6 @@ import LanguageIcon from '@mui/icons-material/Language';
 export default function Cards(props){
     const { details } = props
 
-
-
-
-
     return(
         <>
         <Box

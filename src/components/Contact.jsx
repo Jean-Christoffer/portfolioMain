@@ -56,16 +56,16 @@ export default function Contact(){
     const theme = createTheme({
         palette: {
             primary: {
-              main: '#ffffff', // Set the primary color to white
+              main: '#ffffff',
             },
             text: {
-              primary: '#ffffff', // Set the text color to white
+              primary: '#ffffff', 
             },
             background: {
-              default: '#000000', // Set the default background color to black
+              default: '#000000', 
             },
             typography: {
-                fontFamily: 'Source Sans Pro, sans-serif', // Set the font family to Source Sans Pro
+                fontFamily: 'Source Sans Pro, sans-serif', 
               },
           },
       });   
@@ -113,7 +113,7 @@ export default function Contact(){
                 fullWidth
                 sx={{
                     '& label': {
-                      color: '#ffffff', // Set the label color to white
+                      color: '#ffffff',
                     },
                     fontFamily: 'Source Sans Pro, sans-serif',
                   }} 
@@ -136,7 +136,7 @@ export default function Contact(){
                 fullWidth
                 sx={{
                     '& label': {
-                      color: '#ffffff', // Set the label color to white
+                      color: '#ffffff', 
                     },
                     fontFamily: 'Source Sans Pro, sans-serif',
                   }}  
@@ -162,7 +162,7 @@ export default function Contact(){
                 })}}
                 sx={{
                     '& label': {
-                      color: '#ffffff', // Set the label color to white
+                      color: '#ffffff', 
                     },
                   }} 
                 />
