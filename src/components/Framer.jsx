@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 import { Box } from "@mui/material";
-export const Framer = ({ children}) => {
+export const Framer = ({ active, children}) => {
   const mainControls = useAnimation();
   const slideControls = useAnimation();
 
@@ -32,6 +32,7 @@ export const Framer = ({ children}) => {
       >
         {children}
       </motion.div>
+      {active &&
       <motion.div
         variants={{
           hidden: { left: 0 },
@@ -51,7 +52,7 @@ export const Framer = ({ children}) => {
           borderLeft:'5px solid white'
           
         }}
-      />
+      />}
     </Box>
   );
 };

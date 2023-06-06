@@ -11,16 +11,14 @@ export default function Cards(props){
         <>
         <Box
         sx={{
-          maxWidth: "100%",
-          minHeight:'100vh',
-          overflow:'hidden',
+          maxWidth: "1200px",
           display:'flex',
           justifyContent:{md:'space-between',xs:'center'},
- 
           textAlign:'left',
           alignItems:'center',
           flexDirection:{xs:'column',md:'row'},
-      
+          m:'auto',
+          p:1
         }}
 
       >
@@ -81,10 +79,7 @@ export default function Cards(props){
               >
               Features:
             </Typography>
-            <Box component='ul'
-            sx={{ 
-              listStyle:'square'
-             }}>
+            <Box component='ul'>
             {details.features.map((item,i) => <li key={i}>  
             <Typography component="p" variant="body"
               sx={{ 
@@ -127,7 +122,6 @@ export default function Cards(props){
 
         <Box
           sx={{
-            cursor:'pointer',
             maxWidth:'400px'
 
           }}

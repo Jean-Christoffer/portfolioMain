@@ -4,7 +4,7 @@ import Contact from "./components/Contact.jsx"
 import Projects from "./components/Projects.jsx"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Navigation from "./components/Navigation.jsx"
-
+import Details from './components/Details.jsx'
 
 
 
@@ -22,6 +22,7 @@ function App() {
         <Navigation/>
           <Routes>
             <Route path="/" element={<Hero/>}></Route>
+            <Route path='/details/:id' element={<Details />}></Route>
             <Route path="/projects" element={<Projects/>}></Route>
             <Route path="/contact" element={<Contact/>}></Route>
           </Routes>

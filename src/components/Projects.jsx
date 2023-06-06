@@ -1,10 +1,10 @@
 
-import {Container,Box,Button} from '@mui/material'
+import {Container,Box,Button,Typography} from '@mui/material'
 import Contact from './Contact.jsx'
 import projectList from './data.jsx'
-import Cards from './Cards.jsx'
-import { Framer } from './Framer.jsx'
 
+import { Framer } from './Framer.jsx'
+import { Link } from 'react-router-dom'
 import { useRef } from 'react'
 export default function Projects(){
 
@@ -16,57 +16,61 @@ export default function Projects(){
     
     return(
         <>
-        <Container
-        sx={{
-            maxWidth:'1500px', 
- 
 
-            display:'flex',
-            flexDirection:'column',
-            justifyContent:'center',
-            position:'relative',
-            alignItems:'center',
-            zIndex:10,
+            <Container
+            sx={{
+                maxWidth:'1500px', 
+                display:'flex',
+                flexDirection:'column',
+                position:'relative',
+                alignItems:'center',
+                zIndex:10,
+                p:2,
 
-            p:2,
-            overflow:'hidden'
-         }}
-        >
-            <Box sx={{ ml:'auto' }}>
-                <Button variant='outlined' onClick={handleScrollToContact}
-                sx={{ 
-                    color:'white',
-                    border:'1px solid white',
+            }}
+            >
+                <Box sx={{ ml:'auto' }}>
+                    <Button variant='outlined' onClick={handleScrollToContact}
+                    sx={{ 
+                        color:'white',
+                        border:'1px solid white',
 
 
-                
-                 }}>
-                    Contact
-                </Button>
                     
-            </Box>   
+                    }}>
+                        Contact
+                    </Button>
+                        
+                </Box>   
 
-          
-            {projectList.map(project => {
-                return <Framer key={project.id}>
-                    
-                    <Cards details={project} />
-                </Framer>
-            })}
-       
-                <Framer>
-                    <Box ref={contactRef}
-                     sx={{
-                         minHeight:'100vh',
-                         display:'flex',
-                         flexDirection:'column',
-                         justifyContent:'center' }}>
-                      <Contact/>
-                    
-                    </Box>                   
-                </Framer>
+            <Framer>
+            <Box component='ul'>
+                {projectList.map(project => <li key={project.id}><Link to={`/details/${project.id}`}>
+                <Typography
+                 component='h2'
+                 variant='h1'
+                 sx={{ 
+                    fontSize:{xs:'4rem', md:'6rem'},
+                    mb:1
+                  }}
+                 >{project.title}</Typography>
+                </Link>
+                </li>)}
+            </Box>
 
-        </Container>
+                <Box ref={contactRef}
+                    sx={{
+                    minHeight:'100vh',
+                    display:'flex',
+                    flexDirection:'column',
+                    justifyContent:'center' }}>
+                    <Contact/>
+                        
+                </Box>
+
+            </Framer>
+            </Container>
+   
         </>
     )
 }

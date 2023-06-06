@@ -1,33 +1,33 @@
 /* eslint-disable react/no-unknown-property */
-
-
-
 import { useFBX, useGLTF,useAnimations } from '@react-three/drei'
 import {useRef,useLayoutEffect} from 'react'
 export default function Me(props) {
-  const group = useRef()
+  const me = useRef()
   const { nodes, materials } = useGLTF('models/643501b7aa10d7b4efdae4d3.glb')
 
-  const {animations:typingAnimation} = useFBX('animations/SittingIdle.fbx')
-  typingAnimation[0].name = 'working'
+  const {animations:sittingIdle} = useFBX('animations/SittingIdle.fbx')
+  sittingIdle[0].name = 'sitting'
   
-  const {actions} = useAnimations(typingAnimation,group)
+  const {actions} = useAnimations(sittingIdle,me)
 
-  
+  console.log(sittingIdle)
   useLayoutEffect(()=>{
     
-    actions['working'].reset().play()
-  },[])
+    actions['sitting'].reset().play()
+  },[actions])
+
+
+
 
   useLayoutEffect(() => {
-    group.current.traverse((child) => {
+    me.current.traverse((child) => {
       child.frustumCulled = false;
     });
   }, []);
 
   return (
-    <group {...props} dispose={null} ref={group} position={[0,0,0]} rotation={[0, Math.PI * 2,0]}    >
-      <group rotation-x={- Math.PI / 2} >
+    <group {...props} dispose={null} ref={me} position={[0,0,0]} rotation={[0, Math.PI * 2,0]}  rotation-x={- Math.PI / 2}  >
+
         <primitive object={nodes.Hips} />
         <skinnedMesh  geometry={nodes.Wolf3D_Body.geometry} material={materials.Wolf3D_Body} skeleton={nodes.Wolf3D_Body.skeleton} />
         <skinnedMesh  geometry={nodes.Wolf3D_Outfit_Bottom.geometry} material={materials.Wolf3D_Outfit_Bottom} skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton} />
@@ -39,7 +39,7 @@ export default function Me(props) {
         <skinnedMesh  name="EyeRight" geometry={nodes.EyeRight.geometry} material={materials.Wolf3D_Eye} skeleton={nodes.EyeRight.skeleton} morphTargetDictionary={nodes.EyeRight.morphTargetDictionary} morphTargetInfluences={nodes.EyeRight.morphTargetInfluences} />
         <skinnedMesh  name="Wolf3D_Head" geometry={nodes.Wolf3D_Head.geometry} material={materials.Wolf3D_Skin} skeleton={nodes.Wolf3D_Head.skeleton} morphTargetDictionary={nodes.Wolf3D_Head.morphTargetDictionary} morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences} />
         <skinnedMesh  name="Wolf3D_Teeth" geometry={nodes.Wolf3D_Teeth.geometry} material={materials.Wolf3D_Teeth} skeleton={nodes.Wolf3D_Teeth.skeleton} morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary} morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences} />
-      </group>
+
     </group>
   )
 }
