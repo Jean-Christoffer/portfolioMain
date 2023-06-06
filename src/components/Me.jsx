@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import { useFBX, useGLTF,useAnimations } from '@react-three/drei'
-import {useRef,useLayoutEffect} from 'react'
+import {useRef,useLayoutEffect,useEffect} from 'react'
 export default function Me(props) {
   const me = useRef()
   const { nodes, materials } = useGLTF('models/643501b7aa10d7b4efdae4d3.glb')
@@ -10,25 +10,26 @@ export default function Me(props) {
   
   const {actions} = useAnimations(sittingIdle,me)
 
-  console.log(sittingIdle)
-  useLayoutEffect(()=>{
-    
-    actions['sitting'].reset().play()
-  },[actions])
-
-
-
 
   useLayoutEffect(() => {
+
+      actions['sitting'].reset().play();
+  
+
+  }, [actions]);
+
+
+
+  useEffect(() => {
     me.current.traverse((child) => {
       child.frustumCulled = false;
     });
   }, []);
 
   return (
-    <group {...props} dispose={null} ref={me} position={[0,0,0]} rotation={[0, Math.PI * 2,0]}  rotation-x={- Math.PI / 2}  >
+    <group ref={me} {...props} dispose={null}  position={[0,0,0]} rotation={[0, Math.PI * 2,0]}  rotation-x={- Math.PI / 2}  >
 
-        <primitive object={nodes.Hips} />
+        <primitive object={nodes.Hips}  />
         <skinnedMesh  geometry={nodes.Wolf3D_Body.geometry} material={materials.Wolf3D_Body} skeleton={nodes.Wolf3D_Body.skeleton} />
         <skinnedMesh  geometry={nodes.Wolf3D_Outfit_Bottom.geometry} material={materials.Wolf3D_Outfit_Bottom} skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton} />
         <skinnedMesh  geometry={nodes.Wolf3D_Outfit_Footwear.geometry} material={materials.Wolf3D_Outfit_Footwear} skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton} />

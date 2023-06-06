@@ -44,16 +44,37 @@ export default function Projects(){
                 </Box>   
 
             <Framer>
-            <Box component='ul'>
+            <Box component='ul'
+            sx={{ 
+                minHeight:'100vh'
+             }}>
                 {projectList.map(project => <li key={project.id}><Link to={`/details/${project.id}`}>
                 <Typography
-                 component='h2'
-                 variant='h1'
-                 sx={{ 
-                    fontSize:{xs:'4rem', md:'6rem'},
-                    mb:1
-                  }}
-                 >{project.title}</Typography>
+                    component='h2'
+                    variant='h1'
+                    sx={{ 
+                        fontSize: { xs: '4rem', md: '6rem' },
+                        mb: 5,
+                        display: 'inline-block',
+                        textDecoration: 'none',
+                        position: 'relative',
+                        '&:after': {
+                        content: '""',
+                        position: 'absolute',
+                        left: 0,
+                        bottom: -2,
+                        width: '100%',
+                        height: 5,
+                        background: 'transparent',
+                        transition: 'background-color 300ms ease-in-out', 
+                        },
+                        '&:hover:after': {
+                        background: 'rgba(255, 255, 255, 1)',
+                        },
+                    }}
+                    >
+                    {project.title}
+                </Typography>
                 </Link>
                 </li>)}
             </Box>

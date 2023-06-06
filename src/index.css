@@ -43,3 +43,6 @@ a{
     background: black;
     overflow: hidden;
 }
+ul{
+    list-style: none;
+}

@@ -16,9 +16,9 @@ export default function Cards(props){
           justifyContent:{md:'space-between',xs:'center'},
           textAlign:'left',
           alignItems:'center',
-          flexDirection:{xs:'column',md:'row'},
+          flexDirection:{xs:'column-reverse',md:'row'},
           m:'auto',
-          p:1
+          p:2
         }}
 
       >
@@ -42,8 +42,8 @@ export default function Cards(props){
               sx={{ 
                 letterSpacing:'5px',
                 color:'white',
-                fontSize:{xs:'3rem', md:'5rem'}
-
+                fontSize:'5rem',
+                display:{md:'block', xs:'none'}
 
               }}
               >
@@ -79,12 +79,13 @@ export default function Cards(props){
               >
               Features:
             </Typography>
-            <Box component='ul'>
+            <Box component='ul' >
             {details.features.map((item,i) => <li key={i}>  
             <Typography component="p" variant="body"
               sx={{ 
                 lineHeight:'150%',
                 color:'white',
+              
                 
                 
               }}
@@ -112,7 +113,7 @@ export default function Cards(props){
               justifyContent:'center',
               gap:2
             }}>
-
+              
               {details.tools.map((icon,i) =><img  style={{ width: '30px' }} key={i} src={icon} />)}
           
             </Box>
@@ -122,14 +123,27 @@ export default function Cards(props){
 
         <Box
           sx={{
-            maxWidth:'400px'
-
+            maxWidth:'400px',
+            mb:{xs:2,md:'none'},
+            mt:{xs:2,md:'none'}
           }}
          
         >
+       
           <img src={details.img} alt={details.title} />
 
         </Box>
+        <Typography component="h1" variant='h1'
+              sx={{ 
+                letterSpacing:'5px',
+                color:'white',
+                fontSize:'5rem',
+                display:{md:'none', xs:'block'}
+
+              }}
+              >
+              {details.title}
+        </Typography>
 
       </Box>
         </>
