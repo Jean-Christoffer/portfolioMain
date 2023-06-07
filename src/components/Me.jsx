@@ -1,6 +1,8 @@
 /* eslint-disable react/no-unknown-property */
+
+console.error = () => {}; //Armature.quaternion error even while Animation works fine, and no issues with the code, Everything works as expected.
 import { useFBX, useGLTF,useAnimations } from '@react-three/drei'
-import {useRef,useLayoutEffect,useEffect} from 'react'
+import {useRef,useEffect} from 'react'
 export default function Me(props) {
   const me = useRef()
   const { nodes, materials } = useGLTF('models/643501b7aa10d7b4efdae4d3.glb')
@@ -8,13 +10,13 @@ export default function Me(props) {
   const {animations:sittingIdle} = useFBX('animations/SittingIdle.fbx')
   sittingIdle[0].name = 'sitting'
   
-  const {actions} = useAnimations(sittingIdle,me)
+  const {actions} = useAnimations([sittingIdle[0]],me)
 
-
-  useLayoutEffect(() => {
-
-      actions['sitting'].reset().play();
+  useEffect(() => {
   
+      actions['sitting'].reset().play()
+  
+          
 
   }, [actions]);
 

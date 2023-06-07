@@ -1,9 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/no-unknown-property */
 import { Environment  } from "@react-three/drei";
-import { Suspense } from "react";
 import {  Center  } from "@react-three/drei"
-import Experience from "./Experience.jsx";
+import Me from "./Me.jsx";
+import Computer from "./Computer.jsx";
 
 
 
@@ -18,14 +18,13 @@ export default function Scene(){
         <>
 
         <Environment preset="dawn"/>
-            <Suspense fallback={null}>
+
                         
                 <Center>
                    
-                    <Experience/>
+                    <Me/>
+                    <Computer/>
                 </Center>
-                            
-            </Suspense>
 
 
 

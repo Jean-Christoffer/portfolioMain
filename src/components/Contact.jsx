@@ -7,7 +7,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
-
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });
@@ -18,12 +19,13 @@ export default function Contact(){
     const [emailValue, setEmailValue] = useState('')
     const [messageValue, setMessageValue] = useState('')
 
+
     const [errorState, setErrorState] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
 
     const [open, setOpen] = React.useState(false);
 
-   
+   const formRef= useRef()
 
     const handleClose = (event, reason) => {
       if (reason === 'clickaway') {
@@ -33,23 +35,36 @@ export default function Contact(){
       setOpen(false);
     };
 
-    function handleFormSubmit(e){
+    function handleFormSubmit (e){
         e.preventDefault()
+
+
         const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
         const patternMatches = regex.test(emailValue);
         if(!patternMatches){
             setErrorState(prevState => !prevState)
-            setErrorMessage('Ugyldig e-post adresse')
+            setErrorMessage('Incorrect email')
 
         }else{
+            
             setErrorState(false)
             setOpen(true);
-
             setErrorMessage('')
             setMessageValue('')
             setEmailValue('')
-            setNameValue('')           
+            setNameValue('')
+
+         
         }
+        if(patternMatches){
+          emailjs.sendForm(`${import.meta.env.VITE_API_KEY1}`, `${import.meta.env.VITE_API_KEY2}`, formRef.current, `${import.meta.env.VITE_API_KEY3}`)
+          .then((result) => {
+              console.log(result.text);
+          }, (error) => {
+              console.log(error.text);
+          });
+        }
+
         
     }
 
@@ -76,6 +91,7 @@ export default function Contact(){
         <Box
             component="form"
             onSubmit={handleFormSubmit}
+            ref={formRef}
             sx={{
                 '& .MuiTextField-root': {
                     width: '100%', mt:2.5,
@@ -103,13 +119,14 @@ export default function Contact(){
                 variant="standard"
                 required
                 value={nameValue}
+                name='name'
                 onChange={(e)=> {setNameValue(prevState =>{
                     prevState = e.target.value
                     return prevState
                 })}}
                 id="outlined-required"
                 label="Name"
-                placeholder="Ola Nordmann"
+                placeholder="John cool"
                 fullWidth
                 sx={{
                     '& label': {
@@ -127,6 +144,7 @@ export default function Contact(){
                 required
                 id="outlined-required"
                 label="Mail"
+                name='email'
                 value={emailValue}
                 onChange={(e)=> {setEmailValue(prevState =>{
                     prevState = e.target.value
@@ -153,6 +171,7 @@ export default function Contact(){
                 required
                 multiline
                 rows={4}
+                name='message'
                 value={messageValue}
                 fullWidth
        
