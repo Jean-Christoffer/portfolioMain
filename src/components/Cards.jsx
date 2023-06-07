@@ -114,7 +114,7 @@ export default function Cards(props){
               gap:2
             }}>
               
-              {details.tools.map((icon,i) =><img  style={{ width: '30px' }} key={i} src={icon} />)}
+              {details.tools.map((icon,i) =><img  style={{ width: '30px' }} key={i} src={icon} alt="image of tools used in the project" />)}
           
             </Box>
 

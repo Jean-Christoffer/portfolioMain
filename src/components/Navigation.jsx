@@ -51,7 +51,9 @@ export default function Navigation() {
                         color: 'white', 
                         display: 'block',
                         fontFamily:'Source Sans Pro, sans-serif',
-                        fontSize:'20px'
+                        fontSize:'20px',
+                        role:'navigation',
+                        ariaLabel:'home navigation'
            
                      }}
                 >
