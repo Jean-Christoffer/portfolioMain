@@ -45,7 +45,7 @@ export default function Navigation() {
             {pages.map((page,i) => (
             <Link to={`${page.route}`}  key={i}>
                 <Button
-                
+                  value='navigation'
                     sx={{ 
                         my: 2,
                         color: 'white', 
@@ -58,6 +58,7 @@ export default function Navigation() {
                      }}
                 >
                     {page.name}
+                    
                 </Button>
               </Link>
             ))}
