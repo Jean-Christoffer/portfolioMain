@@ -13,7 +13,7 @@ export default function Computer(){
                 position={[0,1.56,-1.4]}
                 rotation-x={-0.256}
             >
-            <iframe src="https://port-folio1-sand.vercel.app/" />
+                <iframe src="https://port-folio1-sand.vercel.app/" />
             </Html>
 
          </primitive>
