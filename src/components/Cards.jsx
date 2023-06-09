@@ -4,8 +4,31 @@ import { Box,Typography } from "@mui/material"
 import { Link } from "react-router-dom"
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LanguageIcon from '@mui/icons-material/Language';
+import {useState} from 'react';
+
+import Modal from '@mui/material/Modal';
+
+
 export default function Cards(props){
     const { details } = props
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+  
+    const style = {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      maxWidth: '100%',
+      maxHeight:'100%',
+      bgcolor: 'none',
+      border: 'none',
+      boxShadow: 'none',
+      p: 4,
+      
+    };
+
 
     return(
         <>
@@ -121,16 +144,32 @@ export default function Cards(props){
         
         </Box>
 
+        <div>
+        <Modal
+        sx={{ display:{xs:'none', md:'block'} }}
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <img  src={details.img} alt={details.title} />
+          </Box>
+        </Modal>
+      </div>
+
         <Box
           sx={{
             maxWidth:'400px',
             mb:{xs:2,md:'none'},
-            mt:{xs:2,md:'none'}
+            mt:{xs:2,md:'none'},
+            cursor:{md: 'pointer', xs:'default'}
           }}
          
         >
        
-          <img src={details.img} alt={details.title} />
+
+          <img onClick={handleOpen} src={details.img} alt={details.title} />
 
         </Box>
         <Typography component="h1" variant='h1'
