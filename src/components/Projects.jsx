@@ -9,9 +9,14 @@ import { useRef } from 'react'
 export default function Projects(){
 
     const contactRef = useRef()
+    const topRef = useRef()
 
     const handleScrollToContact = () => {
         contactRef.current.scrollIntoView({ behavior: 'smooth' });
+      };
+
+      const handleScrollToTop = () => {
+        topRef.current.scrollIntoView({ behavior: 'smooth' });
       };
     
     return(
@@ -29,7 +34,7 @@ export default function Projects(){
 
             }}
             >
-                <Box sx={{ ml:'auto' }}>
+                <Box sx={{ ml:'auto' }}  ref={topRef}>
                     <Button variant='outlined' onClick={handleScrollToContact}
                     sx={{ 
                         color:'white',
@@ -85,11 +90,26 @@ export default function Projects(){
                     display:'flex',
                     flexDirection:'column',
                     justifyContent:'center' }}>
+                    <Box sx={{ ml:'auto' }}>
+                        <Button variant='outlined' onClick={handleScrollToTop}
+                        sx={{ 
+                            color:'white',
+                            border:'1px solid white',
+
+
+                        
+                        }}>
+                            Projects
+                        </Button>
+                        
+                    </Box> 
                     <Contact/>
+                    
                         
                 </Box>
 
             </Framer>
+
             </Container>
    
         </>

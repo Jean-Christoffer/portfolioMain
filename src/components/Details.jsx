@@ -5,7 +5,7 @@ import { Framer } from './Framer.jsx'
 export default function Details(){
     const params = useParams()
     const id = params.id
-    console.log(id)
+
     return(
         <>
         <Framer active={true}>

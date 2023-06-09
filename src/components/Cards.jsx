@@ -113,7 +113,7 @@ export default function Cards(props){
               justifyContent:'center',
               gap:2
             }}>
-              
+              <Typography>Tools:</Typography>
               {details.tools.map((icon,i) =><img  style={{ width: '30px' }} key={i} src={icon} alt="image of tools used in the project" />)}
           
             </Box>
