@@ -10,10 +10,22 @@ const projectList = [
     git: "https://github.com/Noroff-FEU-Assignments/project-exam-1-Jean-Christoffer",
     web: "https://charming-mousse-954d3d.netlify.app/",
     tools: [
-      "images/css3.svg",
-      "images/html5.svg",
-      "images/wordpress.svg",
-      "images/javascript.svg",
+      {
+        name:'CSS',
+        img:"images/css3.svg"
+      },
+      {
+        name:'HTML',
+        img:"images/html5.svg",
+      },
+      {
+        name:'Wordpress',
+        img:'images/wordpress.svg'
+      },
+      {
+        name:'JS',
+        img: "images/javascript.svg"
+      }
     ],
   },
 
@@ -26,7 +38,24 @@ const projectList = [
     id: 1,
     git: "https://github.com/Jean-Christoffer/Museum",
     web: "https://spectacular-sorbet-d98fe8.netlify.app/index.html",
-    tools: ["images/css3.svg", "images/html5.svg", "images/javascript.svg"],
+    tools: [
+      {
+        name:'CSS',
+        img:"images/css3.svg"
+      },
+      {
+        name:'HTML',
+        img:"images/html5.svg",
+      },
+      {
+        name:'Wordpress',
+        img:'images/wordpress.svg'
+      },
+      {
+        name:'JS',
+        img: "images/javascript.svg"
+      }
+    ],
   },
 
   {
@@ -39,11 +68,26 @@ const projectList = [
     git: "https://github.com/Jean-Christoffer/gamehubFinal",
     web: "https://gamehub-f-inal.vercel.app/",
     tools: [
-      "images/css3.svg",
-      "images/html5.svg",
-      "images/wordpress.svg",
-      "images/javascript.svg",
-      "images/three.svg",
+      {
+        name:'CSS',
+        img:"images/css3.svg"
+      },
+      {
+        name:'HTML',
+        img:"images/html5.svg",
+      },
+      {
+        name:'Wordpress',
+        img:'images/wordpress.svg'
+      },
+      {
+        name:'JS',
+        img: "images/javascript.svg"
+      },
+      {
+        name:'Three.js',
+        img:'images/three.svg'
+      }
     ],
   },
 
@@ -56,7 +100,17 @@ const projectList = [
     id: 3,
     git: "https://github.com/Jean-Christoffer/Movie-base",
     web: "https://movie-base-mauve.vercel.app/",
-    tools: ["images/react.svg", "images/mui.svg"],
+    tools: [
+ 
+      {
+        name:'React',
+        img: "images/react.svg"
+      },
+      {
+        name:'Material UI',
+        img: "images/mui.svg"
+      }
+    ],
   },
 ];
 export default projectList

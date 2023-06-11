@@ -134,10 +134,25 @@ export default function Cards(props){
               m:'auto',
               pb:2,
               justifyContent:'center',
+              alignItems:'center',
               gap:2
             }}>
               <Typography>Tools:</Typography>
-              {details.tools.map((icon,i) =><img  style={{ width: '30px' }} key={i} src={icon} alt="image of tools used in the project" />)}
+              {details.tools.map((icon,i) => {
+                return <Box key={i}
+                sx={{ 
+                  display:'flex',
+                  flexDirection:'column',
+                  alignItems:'center',
+                  justifyContent:'center',
+                  gap:1
+                 }}
+                >
+                    <img  style={{ width: '30px' }}  src={icon.img} alt="image of tools used in the project" />
+                  <Typography variant="body" component='p' fontSize='0.9rem'>{icon.name}</Typography>
+                  
+                </Box>
+              })}
           
             </Box>
 
