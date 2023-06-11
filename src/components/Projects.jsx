@@ -53,7 +53,7 @@ export default function Projects(){
             sx={{ 
                 minHeight:'100vh'
              }}>
-                {projectList.map(project => <li key={project.id}><Link to={`/details/${project.id}`}>
+                {projectList.map(project => <li key={project.id}><Link to={`/${project.id}`}>
                 <Typography
                     component='h2'
                     variant='h1'

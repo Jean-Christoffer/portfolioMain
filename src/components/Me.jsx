@@ -3,6 +3,7 @@
 console.error = () => {}; //Armature.quaternion error even while Animation works fine, and no issues with the code, Everything works as expected.
 import { useFBX, useGLTF,useAnimations } from '@react-three/drei'
 import {useRef,useEffect} from 'react'
+
 export default function Me(props) {
   const me = useRef()
   const { nodes, materials } = useGLTF('models/643501b7aa10d7b4efdae4d3.glb')
@@ -27,6 +28,10 @@ export default function Me(props) {
       child.frustumCulled = false;
     });
   }, []);
+
+
+  
+  
 
   return (
     <group ref={me} {...props} dispose={null}  position={[0,0,0]} rotation={[0, Math.PI * 2,0]}  rotation-x={- Math.PI / 2}  >
